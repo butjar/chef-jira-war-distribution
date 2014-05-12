@@ -49,8 +49,8 @@ end
 bash "unzip-jira-war" do
   user "root"
   code <<-EOH
+  sudo tar -zxf #{Chef::Config[:file_cache_path]}/#{war_file_name} -C #{jira_install_dir}
   cd #{jira_war_dir}
-  sudo tar -zxf #{Chef::Config[:file_cache_path]}/#{war_file_name}
   sed -i 's/jira.home =/ jira.home = \\/opt\\/jira-home/' #{jira_war_dir}/edit-webapp/WEB-INF/classes/jira-application.properties
   sh build.sh
   EOH
