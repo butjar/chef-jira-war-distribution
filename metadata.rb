@@ -1,6 +1,6 @@
 name             'jira_war_distribution'
-maintainer       'YOUR_NAME'
-maintainer_email 'YOUR_EMAIL'
+maintainer       'Martin Fleischer'
+maintainer_email 'martin.t.fleischer@gmail.com'
 license          'All rights reserved'
 description      'Installs/Configures jira_war_distribution'
 long_description 'Installs/Configures jira_war_distribution'
