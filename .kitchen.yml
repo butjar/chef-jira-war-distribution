@@ -13,7 +13,12 @@ platforms:
   - name: centos-6.4
 
 suites:
-  - name: default
+  - name: tomcat6
     run_list:
       - recipe[jira_war_distribution::default]
-    attributes: {jira: {version: "6.2.4", jira-home: "/opt/jira-home", install-dir: "/opt", tomcat_version: 6, }, tomcat: {java_options: '-server -Xms2048m -Xmx2048m -XX:MaxPermSize=512m -Djava.awt.headless=true'}}
+    attributes: {jira: {version: "6.2.4", jira-home: "/opt/jira-home", install-dir: "/opt"}, tomcat: {base_version:  6, java_options: '-server -Xms2048m -Xmx2048m -XX:MaxPermSize=512m -Djava.awt.headless=true'}}
+  - name: tomcat7
+    run_list:
+      - recipe[jira_war_distribution::default]
+    excludes: ["centos-6.4"]
+    attributes: {jira: {version: "6.2.4", jira-home: "/opt/jira-home", install-dir: "/opt"}, tomcat: {base_version:  7, java_options: '-server -Xms2048m -Xmx2048m -XX:MaxPermSize=512m -Djava.awt.headless=true'}}
